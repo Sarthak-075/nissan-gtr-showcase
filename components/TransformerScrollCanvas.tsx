@@ -193,6 +193,32 @@ export default function TransformerScrollCanvas({
 
 
 
+    // Sync with scroll & Trigger Loading
+    useMotionValueEvent(scrollYProgress, "change", (latest) => {
+        // 1. Render Logic
+        if (!isLoaded || images.length === 0) return;
+
+        const frameIndex = Math.min(
+            totalFrames - 1,
+            Math.floor(latest * (totalFrames - 1))
+        );
+        requestAnimationFrame(() => renderFrame(frameIndex));
+
+        // 2. Loading Logic (Predictive)
+        // Calculate which batch we are in
+        const BATCH_SIZE = 25;
+        const currentBatch = Math.floor(frameIndex / BATCH_SIZE);
+
+        // Load current, next, and next-next batch (lookahead)
+        if ((window as any).__loadBatch) {
+            (window as any).__loadBatch(currentBatch);
+            (window as any).__loadBatch(currentBatch + 1);
+            if (currentBatch < Math.floor(totalFrames / BATCH_SIZE)) {
+                (window as any).__loadBatch(currentBatch + 2);
+            }
+        }
+    });
+
     return (
         <div className="relative w-full h-full">
             {!isLoaded && (
