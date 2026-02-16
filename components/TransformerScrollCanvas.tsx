@@ -179,17 +179,7 @@ export default function TransformerScrollCanvas({
         return () => window.removeEventListener('resize', handleResize);
     }, [isLoaded, images, scrollYProgress]);
 
-    // Sync with scroll
-    useMotionValueEvent(scrollYProgress, "change", (latest) => {
-        if (!isLoaded || images.length === 0) return;
 
-        const frameIndex = Math.min(
-            totalFrames - 1,
-            Math.floor(latest * (totalFrames - 1))
-        );
-
-        requestAnimationFrame(() => renderFrame(frameIndex));
-    });
 
     return (
         <div className="relative w-full h-full">

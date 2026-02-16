@@ -48,6 +48,7 @@ export default function PerformanceSection() {
                     src="/images/track.jpg"
                     alt="Track Dominance"
                     fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
                     className="absolute inset-0 object-contain transition-transform duration-700 group-hover:scale-105"
                 />
                 {/* Overlay only on hover to not obscure text in image */}

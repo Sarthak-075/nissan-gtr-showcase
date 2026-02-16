@@ -39,6 +39,7 @@ export default function IntroSection() {
                     src="/images/start.jpg"
                     alt="Nissan GT-R Start"
                     fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
                     className="absolute inset-0 object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10" />

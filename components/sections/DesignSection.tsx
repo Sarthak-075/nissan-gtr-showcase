@@ -45,6 +45,7 @@ export default function DesignSection() {
                         src="/images/exterior.jpeg"
                         alt="GT-R Exterior"
                         fill
+                        sizes="(max-width: 768px) 100vw, 66vw"
                         className="object-cover opacity-80"
                     />
                     <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent" />
@@ -54,6 +55,7 @@ export default function DesignSection() {
                         src="/images/interior.jpg"
                         alt="GT-R Interior"
                         fill
+                        sizes="(max-width: 768px) 100vw, 66vw"
                         className="object-cover opacity-80"
                     />
                     <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent" />
