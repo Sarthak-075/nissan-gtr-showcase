@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+@theme {
+  --color-base-dark: #0b0b0b;
+  --color-neutral-carbon: #1a1a1a;
+  --color-metal-silver: #cfd8dc;
+  --color-gt-r-red: #C30010;
+
+  --font-orbitron: var(--font-orbitron);
+  --font-rajdhani: var(--font-rajdhani);
+}
+
+body {
+  background-color: var(--color-base-dark);
+  color: #ededed;
+  font-family: var(--font-rajdhani), sans-serif;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-orbitron), sans-serif;
+}
+
+/* Custom scrollbar for Webkit */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-base-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-neutral-carbon);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent-metal);
+}
