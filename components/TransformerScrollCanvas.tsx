@@ -179,6 +179,18 @@ export default function TransformerScrollCanvas({
         return () => window.removeEventListener('resize', handleResize);
     }, [isLoaded, images, scrollYProgress]);
 
+    // Initial Render Trigger
+    useEffect(() => {
+        if (isLoaded && images.length > 0) {
+            const currentProgress = scrollYProgress.get();
+            const frameIndex = Math.min(
+                totalFrames - 1,
+                Math.floor(currentProgress * (totalFrames - 1))
+            );
+            requestAnimationFrame(() => renderFrame(frameIndex));
+        }
+    }, [isLoaded]); // Only trigger once when loaded state flips
+
 
 
     return (

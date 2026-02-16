@@ -1,10 +1,16 @@
 # Nissan GT-R | The Godzilla - Cinematic Showcase
 
-![Nissan GT-R Showcase](public/images/hero_og.jpg)
+[Nissan GT-R Showcase]
 
 > "The ultimate everyday supercar, evolved into a technological masterpiece."
 
 A high-performance, interactive 3D web experience showcasing the legendary Nissan GT-R R35. Built with the latest web technologies to deliver a cinematic user experience.
+
+## 🌐 Live Demo
+
+🔗 https://nissan-gtr-showcase.vercel.app/
+
+---
 
 ## 🚀 Features
 
@@ -26,7 +32,6 @@ A high-performance, interactive 3D web experience showcasing the legendary Nissa
 *   **Deployment**: Vercel
 
 ## 📦 Installation
-
 1.  **Clone the repository**:
     ```bash
     git clone https://github.com/your-username/nissan-gtr-showcase.git
