@@ -1,13 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function PricingSection() {
     return (
         <section className="relative min-h-[80vh] py-24 flex items-center justify-end px-6 md:px-24 bg-black border-t border-white/5 overflow-hidden">
             {/* Background Image */}
             <div className="absolute inset-0 z-0">
-                <img src="/images/back.jpg" alt="Pricing Background" className="w-full h-full object-cover opacity-60" />
+                <Image src="/images/back.jpg" alt="Pricing Background" fill className="object-cover opacity-60" />
                 <div className="absolute inset-0 bg-gradient-to-l from-black via-black/50 to-transparent" />
             </div>
 

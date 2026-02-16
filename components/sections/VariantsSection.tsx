@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import Image from "next/image";
 
 const variants = [
     { name: "PREMIUM", hp: "565 HP", label: "The Grand Tourer", image: "/images/premium.jpg" },
@@ -19,10 +20,11 @@ export default function VariantsSection() {
             <div
                 className={`absolute inset-0 transition-opacity duration-700 ${activeBackground ? "opacity-0" : "opacity-60"}`}
             >
-                <img
+                <Image
                     src="/images/weapon.jpg"
                     alt="Default Weapon Background"
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
             </div>
@@ -33,10 +35,11 @@ export default function VariantsSection() {
                     key={variant.name}
                     className={`absolute inset-0 transition-opacity duration-700 ${activeBackground === variant.image ? "opacity-60" : "opacity-0"}`}
                 >
-                    <img
+                    <Image
                         src={variant.image}
                         alt={`${variant.name} Background`}
-                        className="w-full h-full object-cover"
+                        fill
+                        className="object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
                 </div>

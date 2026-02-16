@@ -19,18 +19,30 @@ export default function TransformerScrollCanvas({
     const [isLoaded, setIsLoaded] = useState(false);
 
     // Preload images
+    // Batch Loading Logic
     useEffect(() => {
-        const loadImages = async () => {
-            const loadedImages: HTMLImageElement[] = [];
-            const promises = [];
+        const BATCH_SIZE = 25;
+        let isCancelled = false;
 
-            for (let i = 1; i <= totalFrames; i++) {
+        const loadBatch = async (start: number, end: number) => {
+            const promises = [];
+            for (let i = start; i <= end; i++) {
+                if (i > totalFrames) break;
+
+                // Skip if already loaded (check existence in sparse array)
+                if (images[i - 1]) continue;
+
                 const promise = new Promise<void>((resolve) => {
                     const img = new Image();
-                    // Assuming file naming is Frame (1).png etc.
                     img.src = `${imageFolderPath}/Frame (${i}).png`;
                     img.onload = () => {
-                        loadedImages[i - 1] = img;
+                        if (!isCancelled) {
+                            setImages(prev => {
+                                const newImages = [...prev];
+                                newImages[i - 1] = img;
+                                return newImages;
+                            });
+                        }
                         resolve();
                     };
                     img.onerror = () => {
@@ -40,13 +52,27 @@ export default function TransformerScrollCanvas({
                 });
                 promises.push(promise);
             }
-
             await Promise.all(promises);
-            setImages(loadedImages);
-            setIsLoaded(true);
         };
 
-        loadImages();
+        const loadAllSequentially = async () => {
+            // Load first batch immediately (Critical for LCP)
+            await loadBatch(1, BATCH_SIZE);
+            if (isCancelled) return;
+            setIsLoaded(true); // Show canvas after first batch
+
+            // Load remaining batches
+            for (let i = BATCH_SIZE + 1; i <= totalFrames; i += BATCH_SIZE) {
+                if (isCancelled) break;
+                await loadBatch(i, Math.min(i + BATCH_SIZE - 1, totalFrames));
+            }
+        };
+
+        loadAllSequentially();
+
+        return () => {
+            isCancelled = true;
+        };
     }, [totalFrames, imageFolderPath]);
 
     const renderFrame = (index: number) => {

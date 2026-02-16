@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function IntroSection() {
     return (
@@ -34,10 +35,11 @@ export default function IntroSection() {
 
             {/* Right Column: Visual */}
             <div className="hidden md:flex w-5/12 h-[600px] bg-neutral-carbon/20 backdrop-blur-sm border border-white/5 rounded-sm items-center justify-center relative overflow-hidden group">
-                <img
+                <Image
                     src="/images/start.jpg"
                     alt="Nissan GT-R Start"
-                    className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700"
+                    fill
+                    className="absolute inset-0 object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10" />
                 <span className="font-orbitron text-white/10 text-9xl font-bold -rotate-90 z-0 group-hover:text-white/20 transition-colors duration-500 absolute">

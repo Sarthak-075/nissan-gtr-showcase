@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
+import Image from "next/image";
 
 export default function DesignSection() {
     const [tab, setTab] = useState<"EXTERIOR" | "INTERIOR">("EXTERIOR");
@@ -40,18 +41,20 @@ export default function DesignSection() {
             {/* Visual Panel */}
             <div className="w-full md:w-2/3 relative overflow-hidden bg-neutral-900 group h-[50vh] md:h-auto">
                 <div className={`absolute inset-0 transition-opacity duration-700 ${tab === "EXTERIOR" ? "opacity-100" : "opacity-0"}`}>
-                    <img
+                    <Image
                         src="/images/exterior.jpeg"
                         alt="GT-R Exterior"
-                        className="w-full h-full object-cover opacity-80"
+                        fill
+                        className="object-cover opacity-80"
                     />
                     <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent" />
                 </div>
                 <div className={`absolute inset-0 transition-opacity duration-700 ${tab === "INTERIOR" ? "opacity-100" : "opacity-0"}`}>
-                    <img
+                    <Image
                         src="/images/interior.jpg"
                         alt="GT-R Interior"
-                        className="w-full h-full object-cover opacity-80"
+                        fill
+                        className="object-cover opacity-80"
                     />
                     <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent" />
                 </div>

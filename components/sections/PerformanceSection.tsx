@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import Image from "next/image";
 
 export default function PerformanceSection() {
     const [isLightboxOpen, setIsLightboxOpen] = useState(false);
@@ -43,10 +44,11 @@ export default function PerformanceSection() {
                 className="w-full md:w-1/2 h-[400px] md:h-[600px] relative rounded-lg overflow-hidden border border-white/10 group cursor-zoom-in bg-black"
                 onClick={() => setIsLightboxOpen(true)}
             >
-                <img
+                <Image
                     src="/images/track.jpg"
                     alt="Track Dominance"
-                    className="absolute inset-0 w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
+                    fill
+                    className="absolute inset-0 object-contain transition-transform duration-700 group-hover:scale-105"
                 />
                 {/* Overlay only on hover to not obscure text in image */}
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />

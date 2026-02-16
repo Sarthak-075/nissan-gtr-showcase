@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const milestones = [
     { year: "1969", title: "The Origin", desc: "The first Skyline GT-R (PGC10) is born." },
@@ -14,7 +15,7 @@ export default function TimelineSection() {
         <section className="relative min-h-screen py-24 flex flex-col items-center justify-center px-6 bg-neutral-900 border-t border-white/5 overflow-hidden">
             {/* Background Image */}
             <div className="absolute inset-0 z-0">
-                <img src="/images/legacy.jpg" alt="Legacy Background" className="w-full h-full object-cover opacity-60" />
+                <Image src="/images/legacy.jpg" alt="Legacy Background" fill className="object-cover opacity-60" />
                 <div className="absolute inset-0 bg-gradient-to-b from-black via-black/60 to-black" />
             </div>
 
