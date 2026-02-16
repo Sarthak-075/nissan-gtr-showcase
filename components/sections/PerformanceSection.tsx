@@ -22,7 +22,7 @@ export default function PerformanceSection() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.2 }}
-                    className="font-rajdhani text-metal-silver text-xl leading-relaxed mb-8"
+                    className="font-rajdhani text-neutral-300 text-xl leading-relaxed mb-8"
                 >
                     Hand-crafted titanium exhaust. Independent transaxle 4WD.
                     Dampers setup by Nürburgring masters.

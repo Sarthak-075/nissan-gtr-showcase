@@ -7,14 +7,11 @@ export default function IntroSection() {
         <section className="relative min-h-screen flex items-center justify-between p-6 md:p-24 bg-neutral-900 border-t border-white/5">
             {/* Left Column: Story */}
             <div className="w-full md:w-1/2 flex flex-col justify-center h-full pointer-events-auto">
-                <motion.h4
-                    initial={{ x: -20, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    transition={{ delay: 0.2 }}
-                    className="font-rajdhani text-gt-r-red text-xl tracking-widest mb-4"
+                <span
+                    className="block font-rajdhani text-gt-r-red text-xl tracking-widest mb-4"
                 >
                     THE LEGEND
-                </motion.h4>
+                </span>
                 <motion.h2
                     initial={{ x: -30, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
@@ -27,7 +24,7 @@ export default function IntroSection() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.4 }}
-                    className="font-rajdhani text-metal-silver text-lg leading-relaxed max-w-xl text-justify"
+                    className="font-rajdhani text-neutral-300 text-lg leading-relaxed max-w-xl text-justify"
                 >
                     Since 2007, the R35 GT-R has challenged the status quo of what a supercar can be.
                     Merging brute force with digital precision, it is a weapon of mass seduction

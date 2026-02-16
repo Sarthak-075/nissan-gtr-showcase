@@ -62,7 +62,7 @@ export default function VariantsSection() {
                         >
                             <h3 className="font-orbitron text-2xl text-white mb-2 relative z-10">{variant.name}</h3>
                             <div className="h-[1px] w-12 bg-gt-r-red mb-4 group-hover:w-full transition-all duration-500 relative z-10" />
-                            <p className="font-rajdhani text-metal-silver tracking-widest text-sm mb-8 relative z-10">{variant.label}</p>
+                            <p className="font-rajdhani text-neutral-300 tracking-widest text-sm mb-8 relative z-10">{variant.label}</p>
 
                             <div className="text-4xl font-orbitron text-white font-bold relative z-10">{variant.hp}</div>
 

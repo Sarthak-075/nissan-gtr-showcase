@@ -36,7 +36,7 @@ export default function TimelineSection() {
 
                         <h3 className="font-orbitron font-bold text-3xl text-white mb-2 group-hover:text-gt-r-red transition-colors duration-300">{item.year}</h3>
                         <h4 className="font-rajdhani font-bold text-gt-r-red tracking-widest text-sm mb-2 group-hover:text-white transition-colors duration-300">{item.title}</h4>
-                        <p className="font-rajdhani text-metal-silver text-sm px-4 group-hover:text-white transition-colors duration-300">{item.desc}</p>
+                        <p className="font-rajdhani text-neutral-300 text-sm px-4 group-hover:text-white transition-colors duration-300">{item.desc}</p>
                     </motion.div>
                 ))}
             </div>
